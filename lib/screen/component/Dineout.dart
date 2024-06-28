@@ -1,7 +1,10 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/cupertino.dart';
+
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class DineOutScreen extends StatefulWidget {
   const DineOutScreen({super.key});
@@ -33,11 +36,154 @@ class _DineOutScreenState extends State<DineOutScreen> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: Column(
           children: [
+            Container(
+              height: height * 0.4,
+              width: width * 5,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  opacity: 0.8,
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/img/feature/spice villa.jpg'),
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(40),
+                  bottomLeft: Radius.circular(40),
+                ),
+              ),
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 30,
+                            ),
+                            child: Icon(
+                              CupertinoIcons.location_fill,
+                              color: Color(0xffe46c47),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 30, left: 10),
+                            child: Text(
+                              "Location ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.white),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 30),
+                            child: Icon(
+                              CupertinoIcons.chevron_down,
+                              size: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 150),
+                        child: Text(
+                          "Dindoli, Surat - 394210",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, right: 10, top: 90),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/search');
+                      },
+                      child: Container(
+                        height: height * 0.065,
+                        width: width,
+                        decoration: BoxDecoration(
+                            color: Color(0xffF1F0F5),
+                            borderRadius: BorderRadius.circular(17)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(13.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Search for ',
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 15),
+                              ),
+                              Expanded(
+                                child: AnimatedTextKit(
+                                  animatedTexts: [
+                                    RotateAnimatedText(
+                                      "'Burger'",
+                                      duration: Duration(seconds: 1),
+                                      textStyle: TextStyle(color: Colors.grey),
+                                    ),
+                                    RotateAnimatedText(
+                                      "'Cake'",
+                                      duration: Duration(seconds: 1),
+                                      textStyle: TextStyle(color: Colors.grey),
+                                    ),
+                                    RotateAnimatedText(
+                                      "'Pizza'",
+                                      duration: Duration(seconds: 1),
+                                      textStyle: TextStyle(color: Colors.grey),
+                                    ),
+                                    RotateAnimatedText(
+                                      "'Biryani'",
+                                      duration: Duration(seconds: 1),
+                                      textStyle: TextStyle(color: Colors.grey),
+                                    ),
+                                    RotateAnimatedText(
+                                      "'Rolls'",
+                                      duration: Duration(seconds: 1),
+                                      textStyle: TextStyle(color: Colors.grey),
+                                    ),
+                                  ],
+                                  repeatForever: true,
+                                  pause: Duration(milliseconds: 500),
+                                ),
+                              ),
+                              SizedBox(
+                                width: width * 0.3,
+                              ),
+                              Icon(
+                                Icons.search,
+                                color: Colors.grey,
+                              ),
+                              VerticalDivider(
+                                thickness: 1.5,
+                                color: Colors.grey.shade400,
+                                endIndent: 5,
+                                indent: 5,
+                              ),
+                              Icon(
+                                Icons.mic,
+                                color: Color(0xfff1f4fb),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             SizedBox(
-              height: 40,
+              height: 35,
             ),
             CarouselSlider(
               options: CarouselOptions(
@@ -49,16 +195,19 @@ class _DineOutScreenState extends State<DineOutScreen> {
                 // print('shalu $i');
                 return Builder(
                   builder: (context) => Container(
-                    margin: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(5),
+                    // padding: EdgeInsets.symmetric(horizontal: 10),
                     height: height * 0.3,
-                    width: width * 0.8-23,
+                    width: width * 0.9,
                     decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          opacity: 0.9,
-                            fit: BoxFit.cover,
-                            image: AssetImage(bannerList[change()]['banner']))),
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        opacity: 0.8,
+                        fit: BoxFit.cover,
+                        image: AssetImage(bannerList[change()]['banner']),
+                      ),
+                    ),
                   ),
                 );
               }).toList(),
@@ -275,17 +424,18 @@ class _DineOutScreenState extends State<DineOutScreen> {
                     ),
                     child: Column(
                       children: [
-                        SizedBox(
-                          height: 158,
-                        ),
                         Container(
-                          height: height * 0.200 - 29,
+                          height: height * 0.400 - 20,
                           width: width * 0.8,
-                          decoration: BoxDecoration(),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(color: Colors.black45, blurRadius: 2)
+                              ]),
                           child: Column(
                             children: [
                               SizedBox(
-                                height: 40,
+                                height: 200,
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(right: 129),
@@ -337,12 +487,12 @@ class _DineOutScreenState extends State<DineOutScreen> {
               }).toList(),
             ),
             const SizedBox(
-              height: 25,
+              height: 20,
             ),
             Row(
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(right: 90, left: 25),
+                  padding: EdgeInsets.only(right: 110, left: 25),
                   child: Text(
                     'POPULAR LOCATION',
                     style: TextStyle(
@@ -362,14 +512,18 @@ class _DineOutScreenState extends State<DineOutScreen> {
                     width: 22,
                   ),
                   ...List.generate(
-                    8,
+                    7,
                     (index) => Container(
                       margin: EdgeInsets.all(10),
                       height: height * 0.1 + 30,
                       width: width * 0.3,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17),
-                          color: Colors.grey),
+                        borderRadius: BorderRadius.circular(34),
+                        // color: Colors.grey,
+                        image: DecorationImage(
+                          image: AssetImage(diamondList[index]['box']),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -430,25 +584,107 @@ class _DineOutScreenState extends State<DineOutScreen> {
                   SizedBox(
                     width: 25,
                   ),
-                  Container(
-                    height: 40,
-                    width: 90,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.black12)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          'Filter',
-                          style: TextStyle(fontSize: 15),
+                  GestureDetector(
+                    onTap: () {
+                      // setState(() {
+                      //   BottomSheet(onClosing: () {
+                      //
+                      //   }, builder: (context) => );
+                      // });
+                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          showModalBottomSheet(
+                            backgroundColor: Colors.white,
+                            context: context,
+                            builder: (context) => Container(
+                              // height: height * 1 * 2,
+                              width: width * 0.9 + 50,
+
+                              child: Column(
+                                // crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(height: 10),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        '  Filter',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 24),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(10),
+                                        child: GestureDetector(
+                                            onTap: () {
+                                              setState(() {
+                                                Navigator.of(context).pop();
+                                              });
+                                            },
+                                            child: Icon(Icons.close)),
+                                      ),
+                                    ],
+                                  ),
+                                  Divider(
+                                    thickness: 1,
+                                  ),
+                                  Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Sort by',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+
+                                      Text('Book a table', style: TextStyle(
+                                          fontWeight: FontWeight.bold),),
+
+                                      Text('Within 5km', style: TextStyle(
+                                          fontWeight: FontWeight.bold),),
+
+                                      Text('Pure Veg', style: TextStyle(
+                                          fontWeight: FontWeight.bold),),
+
+                                      Text('Rating 4+', style: TextStyle(
+                                          fontWeight: FontWeight.bold),),
+
+                                      Text('Server Alcohol', style: TextStyle(
+                                          fontWeight: FontWeight.bold),),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        });
+                      },
+                      child: Container(
+                        height: 40,
+                        width: 90,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.black12),
                         ),
-                        Image.asset(
-                          'assets/img/filter.png',
-                          color: Colors.black,
-                          height: 20,
-                        )
-                      ],
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              'Filter',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 14),
+                            ),
+                            Image.asset(
+                              'assets/img/filter.png',
+                              color: Colors.black,
+                              height: 20,
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -656,7 +892,7 @@ class _DineOutScreenState extends State<DineOutScreen> {
               height: 20,
             ),
             const Padding(
-              padding:  EdgeInsets.only(right: 80),
+              padding: EdgeInsets.only(right: 80),
               child: Text(
                 '518 restaurants to explore',
                 style: TextStyle(
@@ -665,51 +901,47 @@ class _DineOutScreenState extends State<DineOutScreen> {
                     fontSize: 19),
               ),
             ),
-
-
             Wrap(
-                  children: [
-
-                    ...List.generate(
-                      dineOutHotelDetailList.length,
-                          (index) => dineOutBox(
-                        height,
-                        width,
-                        (choice == 1)
-                            ? dineOutHotelDetailList[index]['img']
-                            : (choice == 2)
+              children: [
+                ...List.generate(
+                  dineOutHotelDetailList.length,
+                  (index) => dineOutBox(
+                    height,
+                    width,
+                    (choice == 1)
+                        ? dineOutHotelDetailList[index]['img']
+                        : (choice == 2)
                             ? dineOutHotelDetailList2[index]['img']
                             : dineOutHotelDetailList3[index]['img'],
-                        (choice == 1)
-                            ? dineOutHotelDetailList[index]['name']
-                            : (choice == 2)
+                    (choice == 1)
+                        ? dineOutHotelDetailList[index]['name']
+                        : (choice == 2)
                             ? dineOutHotelDetailList2[index]['name']
                             : dineOutHotelDetailList3[index]['name'],
-                        (choice == 1)
-                            ? dineOutHotelDetailList[index]['price']
-                            : (choice == 2)
+                    (choice == 1)
+                        ? dineOutHotelDetailList[index]['price']
+                        : (choice == 2)
                             ? dineOutHotelDetailList2[index]['price']
                             : dineOutHotelDetailList3[index]['price'],
-                        (choice == 1)
-                            ? dineOutHotelDetailList[index]['distance']
-                            : (choice == 2)
+                    (choice == 1)
+                        ? dineOutHotelDetailList[index]['distance']
+                        : (choice == 2)
                             ? dineOutHotelDetailList2[index]['distance']
                             : dineOutHotelDetailList3[index]['distance'],
-                        (choice == 1)
-                            ? dineOutHotelDetailList[index]['location']
-                            : (choice == 2)
+                    (choice == 1)
+                        ? dineOutHotelDetailList[index]['location']
+                        : (choice == 2)
                             ? dineOutHotelDetailList2[index]['location']
                             : dineOutHotelDetailList3[index]['location'],
-                        (choice == 1)
-                            ? dineOutHotelDetailList[index]['rate']
-                            : (choice == 2)
+                    (choice == 1)
+                        ? dineOutHotelDetailList[index]['rate']
+                        : (choice == 2)
                             ? dineOutHotelDetailList2[index]['rate']
                             : dineOutHotelDetailList3[index]['rate'],
-                      ),
-                    ),
-                  ],
-                )
-
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
@@ -922,6 +1154,7 @@ Widget dineOutBox(double height, double width, String img, String name,
 }
 
 List dineOutHotelDetailList = [
+
   {
     'name': 'Pizza-hut..',
     'img': 'assets/img/hotel/pizzaHut.jpg',
@@ -971,6 +1204,22 @@ List dineOutHotelDetailList = [
     'rate': '3.8',
   },
   {
+    'name': 'South Indian',
+    'img': 'assets/img/hotel/h3.jpg',
+    'location': 'Pravat Patiya',
+    'distance': '9km',
+    'price': '1300 for 2',
+    'rate': '3.7',
+  },
+  {
+    'name': 'Sushi',
+    'img': 'assets/img/hotel/h2.jpg',
+    'location': 'Surat , Athwa',
+    'distance': '9.7km',
+    'price': '1500 for 2',
+    'rate': '4.0',
+  },
+  {
     'name': 'Sushi',
     'img': 'assets/img/hotel/ch.jpg',
     'location': 'Surat , Athwa',
@@ -984,6 +1233,14 @@ List dineOutHotelDetailList = [
     'location': 'Surat , Vesu ',
     'distance': '10.7km',
     'price': '800 for 2',
+    'rate': '4.3',
+  },
+  {
+    'name': 'Indian-food',
+    'img': 'assets/img/hotel/h1.jpg',
+    'location': 'Surat , Dindoli ',
+    'distance': '10km',
+    'price': '900 for 2',
     'rate': '4.3',
   },
   {
@@ -1013,21 +1270,14 @@ List dineOutHotelDetailList2 = [
     'rate': '4.1',
   },
   {
-    'name': 'Chinese',
-    'img': 'assets/img/hotel/marriott.jpg',
-    'location': 'Surat Marriott Hotel, Athwa',
-    'distance': '9.7km',
-    'price': '3000 for 2',
-    'rate': '3.8',
+    'name': 'Indian-food',
+    'img': 'assets/img/hotel/h1.jpg',
+    'location': 'Surat , Dindoli ',
+    'distance': '10km',
+    'price': '900 for 2',
+    'rate': '4.3',
   },
-  {
-    'name': 'Sushi',
-    'img': 'assets/img/hotel/ch.jpg',
-    'location': 'Surat , Athwa',
-    'distance': '9.7km',
-    'price': '1500 for 2',
-    'rate': '4.0',
-  },
+
   {
     'name': 'Italian-food',
     'img': 'assets/img/hotel/Mirchi.webp',
@@ -1035,6 +1285,14 @@ List dineOutHotelDetailList2 = [
     'distance': '10.7km',
     'price': '800 for 2',
     'rate': '4.3',
+  },
+  {
+    'name': 'Chinese',
+    'img': 'assets/img/hotel/marriott.jpg',
+    'location': 'Surat Marriott Hotel, Athwa',
+    'distance': '9.7km',
+    'price': '3000 for 2',
+    'rate': '3.8',
   },
   {
     'name': 'Maxican',
@@ -1068,6 +1326,30 @@ List dineOutHotelDetailList2 = [
     'price': '1400 for 2',
     'rate': '3.5',
   },
+  {
+    'name': 'Sushi',
+    'img': 'assets/img/hotel/ch.jpg',
+    'location': 'Surat , Athwa',
+    'distance': '9.7km',
+    'price': '1500 for 2',
+    'rate': '4.0',
+  },
+  {
+    'name': 'South Indian',
+    'img': 'assets/img/hotel/h3.jpg',
+    'location': 'Pravat Patiya',
+    'distance': '9km',
+    'price': '1300 for 2',
+    'rate': '3.7',
+  },
+  {
+    'name': 'Sushi',
+    'img': 'assets/img/hotel/h2.jpg',
+    'location': 'Surat , Athwa',
+    'distance': '9.7km',
+    'price': '1500 for 2',
+    'rate': '4.0',
+  },
 ];
 List dineOutHotelDetailList3 = [
   {
@@ -1085,6 +1367,22 @@ List dineOutHotelDetailList3 = [
     'distance': '9.2km',
     'price': '1400 for 2',
     'rate': '3.5',
+  },
+  {
+    'name': 'South Indian',
+    'img': 'assets/img/hotel/h3.jpg',
+    'location': 'Pravat Patiya',
+    'distance': '9km',
+    'price': '1300 for 2',
+    'rate': '3.7',
+  },
+  {
+    'name': 'Sushi',
+    'img': 'assets/img/hotel/h2.jpg',
+    'location': 'Surat , Athwa',
+    'distance': '9.7km',
+    'price': '1500 for 2',
+    'rate': '4.0',
   },
   {
     'name': 'Indian-Chinese',
@@ -1109,6 +1407,14 @@ List dineOutHotelDetailList3 = [
     'distance': '4.9km',
     'price': '1000 for 2',
     'rate': '4.1',
+  },
+  {
+    'name': 'Indian-food',
+    'img': 'assets/img/hotel/h1.jpg',
+    'location': 'Surat , Dindoli ',
+    'distance': '10km',
+    'price': '900 for 2',
+    'rate': '4.3',
   },
   {
     'name': 'Chinese',
@@ -1237,27 +1543,13 @@ List imagelist = [
   {'foodName': 'Dosa', 'image': 'assets/img/food_images/roll.png'},
 ];
 List bannerList = [
-  {
-    'banner':'assets/img/banner/banner1.png'
-  },
-  {
-    'banner':'assets/img/banner/banner2.png'
-  },
-  {
-    'banner':'assets/img/banner/banner2.png'
-  },
-  {
-    'banner':'assets/img/banner/banner2.png'
-  },
-  {
-    'banner':'assets/img/banner/banner1.png'
-  },
-  {
-    'banner':'assets/img/banner/banner1.png'
-  },
-  {
-    'banner':'assets/img/banner/banner2.png'
-  }
+  {'banner': 'assets/img/banner/banner1.png'},
+  {'banner': 'assets/img/banner/banner2.png'},
+  {'banner': 'assets/img/banner/banner7.png'},
+  {'banner': 'assets/img/banner/banner4.png'},
+  {'banner': 'assets/img/banner/banner6.png'},
+  {'banner': 'assets/img/banner/banner3.png'},
+  {'banner': 'assets/img/banner/banner5.png'},
 ];
 
 PageController controller = PageController();
@@ -1275,3 +1567,26 @@ final List<String> items = [
   'Cost for two:High to Low'
 ];
 List<String> selectedItems = [];
+List diamondList = [
+  {
+    'box': 'assets/img/diamond/1.png',
+  },
+  {
+    'box': 'assets/img/diamond/2.png',
+  },
+  {
+    'box': 'assets/img/diamond/3.png',
+  },
+  {
+    'box': 'assets/img/diamond/4.png',
+  },
+  {
+    'box': 'assets/img/diamond/5.png',
+  },
+  {
+    'box': 'assets/img/diamond/6.png',
+  },
+  {
+    'box': 'assets/img/diamond/7.png',
+  },
+];

@@ -38,7 +38,7 @@ dependencies:
   carousel_slider: ^4.2.1
   material_floating_search_bar_2: ^0.5.0
   dropdown_button2: ^2.3.9
-  smooth_page_indicator: ^1.1.0
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +76,7 @@ flutter:
     - assets/img/hotel/Mirchi.webp
     - assets/img/hotel/pizzaHut.jpg
     - assets/img/hotel/skyhotel.jpg
+
     - assets/img/plan/buffets.jpeg
     - assets/img/plan/budget.jpeg
     - assets/img/plan/family.jpeg
@@ -83,6 +84,7 @@ flutter:
     - assets/img/plan/outdoors.jpg
     - assets/img/plan/quick bites.jpg
     - assets/img/plan/veg.jpeg
+
     - assets/img/feature/indian.jpeg
     - assets/img/feature/italian.webp
     - assets/img/feature/jack.jpg
@@ -127,6 +129,28 @@ flutter:
 
     - assets/img/banner/banner1.png
     - assets/img/banner/banner2.png
+    - assets/img/banner/banner3.png
+    - assets/img/banner/banner4.png
+    - assets/img/banner/banner5.png
+    - assets/img/banner/banner6.png
+    - assets/img/banner/banner7.png
+
+    - assets/img/diamond/1.png
+    - assets/img/diamond/2.png
+    - assets/img/diamond/3.png
+    - assets/img/diamond/4.png
+    - assets/img/diamond/5.png
+    - assets/img/diamond/6.png
+    - assets/img/diamond/7.png
+
+    - assets/img/hotel/h.jpg
+    - assets/img/hotel/h1.jpg
+    - assets/img/hotel/h2.jpg
+    - assets/img/hotel/h3.jpg
+    - assets/img/hotel/h4.jpg
+    - assets/img/hotel/h5.jpg
+    - assets/img/hotel/h6.jpg
+    - assets/img/hotel/h7.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
