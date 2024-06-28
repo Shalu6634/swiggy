@@ -1228,6 +1228,14 @@ List dineOutHotelDetailList = [
     'rate': '4.0',
   },
   {
+    'name': 'Spice-Vila',
+    'img': 'assets/img/hotel/h7.jpg',
+    'location': 'Surat Marriott Hotel,surat',
+    'distance': '9.7km',
+    'price': '2000 for 2',
+    'rate': '6.5',
+  },
+  {
     'name': 'Italian-food',
     'img': 'assets/img/hotel/Mirchi.webp',
     'location': 'Surat , Vesu ',
@@ -1251,6 +1259,15 @@ List dineOutHotelDetailList = [
     'price': '1000 for 2',
     'rate': '4.4',
   },
+  {
+    'name': 'Spice-Vila',
+    'img': 'assets/img/hotel/h6.jpg',
+    'location': 'Surat Marriott Hotel,surat',
+    'distance': '9.7km',
+    'price': '2000 for 2',
+    'rate': '6.5',
+  },
+
 ];
 List dineOutHotelDetailList2 = [
   {
@@ -1263,7 +1280,7 @@ List dineOutHotelDetailList2 = [
   },
   {
     'name': 'North Indian',
-    'img': 'assets/img/hotel/blue.jpg',
+    'img': 'assets/img/hotel/h7.jpg',
     'location': 'Hotel Lords Plaza',
     'distance': '4.9km',
     'price': '1000 for 2',
@@ -1280,7 +1297,32 @@ List dineOutHotelDetailList2 = [
 
   {
     'name': 'Italian-food',
-    'img': 'assets/img/hotel/Mirchi.webp',
+    'img': 'assets/img/hotel/h5.webp',
+    'location': 'Surat , Vesu ',
+    'distance': '10.7km',
+    'price': '800 for 2',
+    'rate': '4.3',
+  },
+  {
+    'name': 'North Indian',
+    'img': 'assets/img/hotel/h4.jpg',
+    'location': 'Hotel Lords Plaza',
+    'distance': '4.9km',
+    'price': '1000 for 2',
+    'rate': '4.1',
+  },
+  {
+    'name': 'Indian-food',
+    'img': 'assets/img/hotel/h1.jpg',
+    'location': 'Surat , Dindoli ',
+    'distance': '10km',
+    'price': '900 for 2',
+    'rate': '4.3',
+  },
+
+  {
+    'name': 'Italian-food',
+    'img': 'assets/img/hotel/h3.webp',
     'location': 'Surat , Vesu ',
     'distance': '10.7km',
     'price': '800 for 2',
@@ -1312,7 +1354,23 @@ List dineOutHotelDetailList2 = [
   },
   {
     'name': 'Spice-Vila',
+    'img': 'assets/img/hotel/h6.jpg',
+    'location': 'Surat Marriott Hotel,surat',
+    'distance': '9.7km',
+    'price': '2000 for 2',
+    'rate': '6.5',
+  },
+  {
+    'name': 'Spice-Vila',
     'img': 'assets/img/hotel/marrito.jpg',
+    'location': 'Surat Marriott Hotel,surat',
+    'distance': '9.7km',
+    'price': '2000 for 2',
+    'rate': '6.5',
+  },
+  {
+    'name': 'Spice-Vila',
+    'img': 'assets/img/hotel/h1.jpg',
     'location': 'Surat Marriott Hotel,surat',
     'distance': '9.7km',
     'price': '2000 for 2',
@@ -1325,6 +1383,14 @@ List dineOutHotelDetailList2 = [
     'distance': '9.2km',
     'price': '1400 for 2',
     'rate': '3.5',
+  },
+  {
+    'name': 'Spice-Vila',
+    'img': 'assets/img/hotel/h6.jpg',
+    'location': 'Surat Marriott Hotel,surat',
+    'distance': '9.7km',
+    'price': '2000 for 2',
+    'rate': '6.5',
   },
   {
     'name': 'Sushi',
@@ -1361,6 +1427,14 @@ List dineOutHotelDetailList3 = [
     'rate': '6.5',
   },
   {
+    'name': 'Spice-Vila',
+    'img': 'assets/img/hotel/h6.jpg',
+    'location': 'Surat Marriott Hotel,surat',
+    'distance': '9.7km',
+    'price': '2000 for 2',
+    'rate': '6.5',
+  },
+  {
     'name': 'South Indian',
     'img': 'assets/img/hotel/bhagwati.jpeg',
     'location': 'Science Centre Building,City Light',
@@ -1375,6 +1449,22 @@ List dineOutHotelDetailList3 = [
     'distance': '9km',
     'price': '1300 for 2',
     'rate': '3.7',
+  },
+  {
+    'name': 'North Indian',
+    'img': 'assets/img/hotel/h7.jpg',
+    'location': 'Hotel Lords Plaza',
+    'distance': '4.9km',
+    'price': '1000 for 2',
+    'rate': '4.1',
+  },
+  {
+    'name': 'Indian-food',
+    'img': 'assets/img/hotel/h1.jpg',
+    'location': 'Surat , Dindoli ',
+    'distance': '10km',
+    'price': '900 for 2',
+    'rate': '4.3',
   },
   {
     'name': 'Sushi',
@@ -1399,6 +1489,30 @@ List dineOutHotelDetailList3 = [
     'distance': '1.6km',
     'price': '800 for 2',
     'rate': '4.5',
+  },
+  {
+    'name': 'Spice-Vila',
+    'img': 'assets/img/hotel/h6.jpg',
+    'location': 'Surat Marriott Hotel,surat',
+    'distance': '9.7km',
+    'price': '2000 for 2',
+    'rate': '6.5',
+  },
+  {
+    'name': 'North Indian',
+    'img': 'assets/img/hotel/h7.jpg',
+    'location': 'Hotel Lords Plaza',
+    'distance': '4.9km',
+    'price': '1000 for 2',
+    'rate': '4.1',
+  },
+  {
+    'name': 'Indian-food',
+    'img': 'assets/img/hotel/h1.jpg',
+    'location': 'Surat , Dindoli ',
+    'distance': '10km',
+    'price': '900 for 2',
+    'rate': '4.3',
   },
   {
     'name': 'North Indian',
