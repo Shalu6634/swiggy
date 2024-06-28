@@ -1154,6 +1154,63 @@ Widget dineOutBox(double height, double width, String img, String name,
 }
 
 List dineOutHotelDetailList = [
+  {
+    'name': 'Pizza-hut..',
+    'img': 'assets/img/hotel/pizzaHut.jpg',
+    'location': 'The Palace,Parvat Patiya ,surat',
+    'distance': '1.6km',
+    'price': '800 for 2',
+    'rate': '4.5',
+  },
+  {
+
+    'name': 'South Indian',
+    'img': 'assets/img/hotel/h22.jpg',
+    'location': 'Pravat Patiya',
+    'distance': '9km',
+    'price': '1300 for 2',
+    'rate': '3.7',
+  },
+  {
+    'name': 'Sushi',
+    'img': 'assets/img/hotel/h21.jpg',
+    'location': 'Surat , Athwa',
+    'distance': '9.7km',
+    'price': '1500 for 2',
+    'rate': '4.0',
+  },
+  {
+    'img':'assets/img/hotel/h20.jpg',
+    'name': 'Buffet Delight',
+    'location': '777 Sunset Blvd, Suburbia',
+    'distance': '2.7km',
+    'price': '2500 for 2',
+    'rate': '2.5',
+  },
+  {
+    'name': 'Italian-food',
+    'img': 'assets/img/hotel/h3.jpg',
+    'location': 'Surat , Vesu ',
+    'distance': '10.7km',
+    'price': '800 for 2',
+    'rate': '4.3',
+  },
+  {
+    'name': 'Chinese',
+    'img': 'assets/img/hotel/marriott.jpg',
+    'location': 'Surat Marriott Hotel, Athwa',
+    'distance': '9.7km',
+    'price': '3000 for 2',
+    'rate': '3.8',
+  },
+  {
+    'name': 'Maxican',
+    'img': 'assets/img/hotel/skyhotel.jpg',
+    'location': 'Adajan Gam,Surat',
+    'distance': '10.1km',
+    'price': '1000 for 2',
+    'rate': '4.4',
+  },
 
   {
     'name': 'Pizza-hut..',
@@ -1270,6 +1327,39 @@ List dineOutHotelDetailList = [
 
 ];
 List dineOutHotelDetailList2 = [
+
+  {
+    'img':'assets/img/hotel/h14.jpg',
+    'name': 'Italian',
+    'location': '123 Main St, Anytown',
+    'distance': '5km',
+    'price': '1900 for 2',
+    'rate': '4',
+  },
+  {
+    'img':'assets/img/hotel/h15.jpg',
+    'name': 'Mexican',
+    'location': '456 Elm St, Othertown',
+    'distance': '2.7km',
+    'price': '1000 for 2',
+    'rate': '3',
+  },
+  {
+    'img':'assets/img/hotel/h16.jpg',
+    'name': 'Japanese',
+    'location': '789 Maple Ave, Cityville',
+    'distance': '12km',
+    'price': '900 for 2',
+    'rate': '4.5',
+  },
+  {
+    'img':'assets/img/hotel/h17.jpg',
+    'name': 'American',
+    'location': '101 Oak Blvd, Smalltown',
+    'distance': '10km',
+    'price': '800 for 2',
+    'rate': '2.6',
+  },
   {
     'name': 'Indian-Chinese',
     'img': 'assets/img/hotel/dil se.webp',
@@ -1294,7 +1384,6 @@ List dineOutHotelDetailList2 = [
     'price': '900 for 2',
     'rate': '4.3',
   },
-
   {
     'name': 'Italian-food',
     'img': 'assets/img/hotel/h5.webp',
@@ -1319,10 +1408,9 @@ List dineOutHotelDetailList2 = [
     'price': '900 for 2',
     'rate': '4.3',
   },
-
   {
     'name': 'Italian-food',
-    'img': 'assets/img/hotel/h3.webp',
+    'img': 'assets/img/hotel/h3.jpg',
     'location': 'Surat , Vesu ',
     'distance': '10.7km',
     'price': '800 for 2',
@@ -1416,8 +1504,48 @@ List dineOutHotelDetailList2 = [
     'price': '1500 for 2',
     'rate': '4.0',
   },
+  {
+    'name': 'Buffet Delight',
+    'location': '777 Sunset Blvd, Suburbia',
+    'distance': '2.7km',
+    'price': '2500 for 2',
+    'rate': '2.5',
+  },
+  {
+    'name': 'Sushi',
+    'img': 'assets/img/hotel/ch.jpg',
+    'location': 'Surat , Athwa',
+    'distance': '9.7km',
+    'price': '1500 for 2',
+    'rate': '4.0',
+  },
+  {
+    'name': 'Italian-food',
+    'img': 'assets/img/hotel/Mirchi.webp',
+    'location': 'Surat , Vesu ',
+    'distance': '10.7km',
+    'price': '800 for 2',
+    'rate': '4.3',
+  },
+  {
+    'name': 'Maxican',
+    'img': 'assets/img/hotel/skyhotel.jpg',
+    'location': 'Adajan Gam,Surat',
+    'distance': '10.1km',
+    'price': '1000 for 2',
+    'rate': '4.4',
+  },
 ];
+
 List dineOutHotelDetailList3 = [
+  {
+    'img':'assets/img/hotel/h23.jpg',
+    'name': 'French',
+    'location': '222 Pine St, Downtown',
+    'distance': '9.3km',
+    'price': '1820 for 2',
+    'rate': '5',
+  },
   {
     'name': 'Spice-Vila',
     'img': 'assets/img/hotel/marrito.jpg',
@@ -1425,6 +1553,46 @@ List dineOutHotelDetailList3 = [
     'distance': '9.7km',
     'price': '2000 for 2',
     'rate': '6.5',
+  },
+  {
+    'img':'assets/img/hotel/h12.jpg',
+    'name': 'Seafood',
+    'location': '333 Beach Rd, Coastline',
+    'distance': '4.9km',
+    'price': '1000 for 2',
+    'rate': '4.1',
+  },
+  {
+    'img':'assets/img/hotel/h11.jpg',
+    'name': 'Vegetarian',
+    'location': '444 Cedar Lane, Riverside',
+    'distance': '2.7km',
+    'price': '2500 for 2',
+    'rate': '2.5',
+  },
+  {
+    'img':'assets/img/hotel/h10.jpg',
+    'name': 'Steakhouses',
+    'location': '555 Oakwood Dr, Hillside',
+    'distance': '9.7km',
+    'price': '2000 for 2',
+    'rate': '6.5',
+  },
+  {
+    'img':'assets/img/hotel/h9.jpg',
+    'name': 'Cafés',
+    'location': '66 Chestnut Ave, Uptown',
+    'distance': '9km',
+    'price': '1300 for 2',
+    'rate': '3.7',
+  },
+  {
+    'img':'assets/img/hotel/h8.jpg',
+    'name': 'Buffet Delight',
+    'location': '777 Sunset Blvd, Suburbia',
+    'distance': '2.7km',
+    'price': '2500 for 2',
+    'rate': '2.5',
   },
   {
     'name': 'Spice-Vila',
@@ -1532,7 +1700,7 @@ List dineOutHotelDetailList3 = [
   },
   {
     'name': 'Chinese',
-    'img': 'assets/img/hotel/marriott.jpg',
+    'img': 'assets/img/hotel/h18.jpg',
     'location': 'Surat Marriott Hotel, Athwa',
     'distance': '9.7km',
     'price': '3000 for 2',
@@ -1556,7 +1724,7 @@ List dineOutHotelDetailList3 = [
   },
   {
     'name': 'Maxican',
-    'img': 'assets/img/hotel/skyhotel.jpg',
+    'img': 'assets/img/hotel/19.jpg',
     'location': 'Adajan Gam,Surat',
     'distance': '10.1km',
     'price': '1000 for 2',

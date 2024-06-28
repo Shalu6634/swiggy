@@ -151,6 +151,21 @@ flutter:
     - assets/img/hotel/h5.jpg
     - assets/img/hotel/h6.jpg
     - assets/img/hotel/h7.jpg
+    - assets/img/hotel/h8.jpg
+    - assets/img/hotel/h9.jpg
+    - assets/img/hotel/h10.jpg
+    - assets/img/hotel/h11.jpg
+    - assets/img/hotel/h12.jpg
+    - assets/img/hotel/h14.jpg
+    - assets/img/hotel/h15.jpg
+    - assets/img/hotel/h16.jpg
+    - assets/img/hotel/h17.jpg
+    - assets/img/hotel/h18.jpg
+    - assets/img/hotel/h19.jpg
+    - assets/img/hotel/h20.jpg
+    - assets/img/hotel/h21.jpg
+    - assets/img/hotel/h22.jpg
+    - assets/img/hotel/h23.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
