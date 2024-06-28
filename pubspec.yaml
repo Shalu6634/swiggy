@@ -36,6 +36,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   carousel_slider: ^4.2.1
+  material_floating_search_bar_2: ^0.5.0
+  dropdown_button2: ^2.3.9
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -91,6 +94,39 @@ flutter:
     - assets/img/Icons.jpeg
     - assets/img/icon.png
     - assets/img/img.png
+    - assets/img/food/dhokla.png
+    - assets/img/food/poha.png
+    - assets/img/food/samosa.png
+    - assets/img/food/thepla.png
+    - assets/img/food/vada.png
+    - assets/img/food/coffie.jpg
+    - assets/img/discount.png
+    - assets/img/filter.png
+
+
+    - assets/img/food_images/dosa.png
+    - assets/img/food_images/kachori.jpeg
+    - assets/img/food_images/lassi.png
+    - assets/img/food_images/momos.jpeg
+    - assets/img/food_images/noodles.jpeg
+    - assets/img/food_images/pasta.jpeg
+    - assets/img/food_images/pavbhaji.jpeg
+    - assets/img/food_images/pizza.jpeg
+    - assets/img/food_images/poori.png
+    - assets/img/food_images/roll.png
+    - assets/img/food_images/salad.jpeg
+    - assets/img/food_images/samosa.jpeg
+    - assets/img/food_images/sandwich.png
+    - assets/img/food_images/vada.png
+    - assets/img/food_images/dosa.png
+    - assets/img/food_images/burger.jpeg
+    - assets/img/food_images/chinese.png
+    - assets/img/food_images/biryani.png
+    - assets/img/food_images/sandwich.png
+    - assets/img/food_images/roll.png
+
+    - assets/img/banner/banner1.png
+    - assets/img/banner/banner2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
