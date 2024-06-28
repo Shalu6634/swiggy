@@ -1023,6 +1023,7 @@ Widget dineOutBox(double height, double width, String img, String name,
           color: Colors.black,
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
+
             fit: BoxFit.cover,
             image: AssetImage(img),
           ),
