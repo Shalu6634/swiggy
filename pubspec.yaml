@@ -39,6 +39,7 @@ dependencies:
   material_floating_search_bar_2: ^0.5.0
   dropdown_button2: ^2.3.9
   animated_text_kit: ^4.2.2
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -166,6 +167,13 @@ flutter:
     - assets/img/hotel/h21.jpg
     - assets/img/hotel/h22.jpg
     - assets/img/hotel/h23.jpg
+
+    - assets/img/pizza/pizza1.jpg
+    - assets/img/pizza/pizza2.jpeg
+    - assets/img/pizza/pizza3.jpg
+    - assets/img/pizza/pizza4.jpg
+    - assets/img/pizza/pizza5.jpeg
+    - assets/img/pizza/pizza6.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

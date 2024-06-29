@@ -14,6 +14,8 @@ class DineOutScreen extends StatefulWidget {
 }
 
 class _DineOutScreenState extends State<DineOutScreen> {
+  int filter_value = 0;
+
   int change() {
     if (value == 6) {
       value = 0;
@@ -322,39 +324,50 @@ class _DineOutScreenState extends State<DineOutScreen> {
                     children: [
                       ...List.generate(
                         dineOutHotelDetailList.length,
-                        (index) => dineOutBox(
-                          height,
-                          width,
-                          (choice == 1)
-                              ? dineOutHotelDetailList[index]['img']
-                              : (choice == 2)
-                                  ? dineOutHotelDetailList2[index]['img']
-                                  : dineOutHotelDetailList3[index]['img'],
-                          (choice == 1)
-                              ? dineOutHotelDetailList[index]['name']
-                              : (choice == 2)
-                                  ? dineOutHotelDetailList2[index]['name']
-                                  : dineOutHotelDetailList3[index]['name'],
-                          (choice == 1)
-                              ? dineOutHotelDetailList[index]['price']
-                              : (choice == 2)
-                                  ? dineOutHotelDetailList2[index]['price']
-                                  : dineOutHotelDetailList3[index]['price'],
-                          (choice == 1)
-                              ? dineOutHotelDetailList[index]['distance']
-                              : (choice == 2)
-                                  ? dineOutHotelDetailList2[index]['distance']
-                                  : dineOutHotelDetailList3[index]['distance'],
-                          (choice == 1)
-                              ? dineOutHotelDetailList[index]['location']
-                              : (choice == 2)
-                                  ? dineOutHotelDetailList2[index]['location']
-                                  : dineOutHotelDetailList3[index]['location'],
-                          (choice == 1)
-                              ? dineOutHotelDetailList[index]['rate']
-                              : (choice == 2)
-                                  ? dineOutHotelDetailList2[index]['rate']
-                                  : dineOutHotelDetailList3[index]['rate'],
+                        (index) => GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              if (selectedIndex == index) {
+                                Navigator.of(context).pushNamed('/detail');
+                              }
+                            });
+                          },
+                          child: dineOutBox(
+                            height,
+                            width,
+                            (choice == 1)
+                                ? dineOutHotelDetailList[index]['img']
+                                : (choice == 2)
+                                    ? dineOutHotelDetailList2[index]['img']
+                                    : dineOutHotelDetailList3[index]['img'],
+                            (choice == 1)
+                                ? dineOutHotelDetailList[index]['name']
+                                : (choice == 2)
+                                    ? dineOutHotelDetailList2[index]['name']
+                                    : dineOutHotelDetailList3[index]['name'],
+                            (choice == 1)
+                                ? dineOutHotelDetailList[index]['price']
+                                : (choice == 2)
+                                    ? dineOutHotelDetailList2[index]['price']
+                                    : dineOutHotelDetailList3[index]['price'],
+                            (choice == 1)
+                                ? dineOutHotelDetailList[index]['distance']
+                                : (choice == 2)
+                                    ? dineOutHotelDetailList2[index]['distance']
+                                    : dineOutHotelDetailList3[index]
+                                        ['distance'],
+                            (choice == 1)
+                                ? dineOutHotelDetailList[index]['location']
+                                : (choice == 2)
+                                    ? dineOutHotelDetailList2[index]['location']
+                                    : dineOutHotelDetailList3[index]
+                                        ['location'],
+                            (choice == 1)
+                                ? dineOutHotelDetailList[index]['rate']
+                                : (choice == 2)
+                                    ? dineOutHotelDetailList2[index]['rate']
+                                    : dineOutHotelDetailList3[index]['rate'],
+                          ),
                         ),
                       ),
                     ],
@@ -596,70 +609,291 @@ class _DineOutScreenState extends State<DineOutScreen> {
                       onTap: () {
                         setState(() {
                           showModalBottomSheet(
-                            backgroundColor: Colors.white,
-                            context: context,
-                            builder: (context) => Container(
-                              // height: height * 1 * 2,
-                              width: width * 0.9 + 50,
-
-                              child: Column(
-                                // crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 10),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '  Filter',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 24),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(10),
-                                        child: GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                Navigator.of(context).pop();
-                                              });
-                                            },
-                                            child: Icon(Icons.close)),
-                                      ),
-                                    ],
-                                  ),
-                                  Divider(
-                                    thickness: 1,
-                                  ),
-                                  Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Sort by',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-
-                                      Text('Book a table', style: TextStyle(
-                                          fontWeight: FontWeight.bold),),
-
-                                      Text('Within 5km', style: TextStyle(
-                                          fontWeight: FontWeight.bold),),
-
-                                      Text('Pure Veg', style: TextStyle(
-                                          fontWeight: FontWeight.bold),),
-
-                                      Text('Rating 4+', style: TextStyle(
-                                          fontWeight: FontWeight.bold),),
-
-                                      Text('Server Alcohol', style: TextStyle(
-                                          fontWeight: FontWeight.bold),),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
+                              backgroundColor: Colors.white,
+                              context: context,
+                              builder: (context) => Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Filter',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 27),
+                                            ),
+                                            Icon(Icons.close)
+                                          ],
+                                        ),
+                                        Divider(),
+                                        Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 10),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Sort',
+                                                    style: TextStyle(
+                                                        color:
+                                                            Colors.deepOrange,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20),
+                                                  ),
+                                                  Text(
+                                                    '\nBook a table',
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 18),
+                                                  ),
+                                                  Text(
+                                                    '\nWithin 5km',
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 18),
+                                                  ),
+                                                  Text(
+                                                    '\nPure Veg',
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 18),
+                                                  ),
+                                                  Text(
+                                                    '\nRating 4+',
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 19),
+                                                  ),
+                                                  SizedBox(
+                                                    height: height * 0.08,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              height: height * 0.450,
+                                              width: 1,
+                                              color: Colors.grey,
+                                              margin: EdgeInsets.only(left: 4),
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  '   SORT BY',
+                                                  style: TextStyle(
+                                                      letterSpacing: 5),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    IconButton(
+                                                      onPressed: () {
+                                                        setState(() {});
+                                                      },
+                                                      icon: (filter_value == 0)
+                                                          ? Icon(
+                                                              Icons
+                                                                  .radio_button_checked,
+                                                              color: Colors
+                                                                  .deepOrange,
+                                                            )
+                                                          : Icon(
+                                                              Icons
+                                                                  .circle_outlined,
+                                                              color:
+                                                                  Colors.grey,
+                                                            ),
+                                                    ),
+                                                    Text(
+                                                      'Relevance',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              (filter_value ==
+                                                                      0)
+                                                                  ? FontWeight
+                                                                      .bold
+                                                                  : FontWeight
+                                                                      .normal,
+                                                          fontSize: 15.9),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    IconButton(
+                                                        onPressed: () {
+                                                          setState(() {
+                                                            filter_value = 1;
+                                                          });
+                                                        },
+                                                        icon: (filter_value ==
+                                                                1)
+                                                            ? Icon(
+                                                                Icons
+                                                                    .radio_button_checked,
+                                                                color: Colors
+                                                                    .deepOrange,
+                                                              )
+                                                            : Icon(
+                                                                Icons
+                                                                    .circle_outlined,
+                                                                color:
+                                                                    Colors.grey,
+                                                              )),
+                                                    Text(
+                                                      'Distance:Nearby To Far',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              (filter_value ==
+                                                                      1)
+                                                                  ? FontWeight
+                                                                      .bold
+                                                                  : FontWeight
+                                                                      .normal,
+                                                          fontSize: 15.9),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    IconButton(
+                                                        onPressed: () {
+                                                          setState(() {
+                                                            filter_value = 2;
+                                                          });
+                                                        },
+                                                        icon: (filter_value ==
+                                                                2)
+                                                            ? Icon(
+                                                                Icons
+                                                                    .radio_button_checked,
+                                                                color: Colors
+                                                                    .deepOrange,
+                                                              )
+                                                            : Icon(
+                                                                Icons
+                                                                    .circle_outlined,
+                                                                color:
+                                                                    Colors.grey,
+                                                              )),
+                                                    Text(
+                                                      'Popularity:High to low',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              (filter_value ==
+                                                                      2)
+                                                                  ? FontWeight
+                                                                      .bold
+                                                                  : FontWeight
+                                                                      .normal,
+                                                          fontSize: 15.9),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    IconButton(
+                                                        onPressed: () {
+                                                          setState(() {
+                                                            filter_value = 3;
+                                                          });
+                                                        },
+                                                        icon: (filter_value ==
+                                                                3)
+                                                            ? Icon(
+                                                                Icons
+                                                                    .radio_button_checked,
+                                                                color: Colors
+                                                                    .deepOrange,
+                                                              )
+                                                            : Icon(
+                                                                Icons
+                                                                    .circle_outlined,
+                                                                color:
+                                                                    Colors.grey,
+                                                              )),
+                                                    Text(
+                                                      'Cost: Low to High',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              (filter_value ==
+                                                                      3)
+                                                                  ? FontWeight
+                                                                      .bold
+                                                                  : FontWeight
+                                                                      .normal,
+                                                          fontSize: 15.9),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    IconButton(
+                                                        onPressed: () {
+                                                          setState(() {
+                                                            filter_value = 4;
+                                                          });
+                                                        },
+                                                        icon: (filter_value ==
+                                                                4)
+                                                            ? Icon(
+                                                                Icons
+                                                                    .radio_button_checked,
+                                                                color: Colors
+                                                                    .deepOrange,
+                                                              )
+                                                            : Icon(
+                                                                Icons
+                                                                    .circle_outlined,
+                                                                color:
+                                                                    Colors.grey,
+                                                              )),
+                                                    Text(
+                                                      'Cost: High to Low',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              (filter_value ==
+                                                                      4)
+                                                                  ? FontWeight
+                                                                      .bold
+                                                                  : FontWeight
+                                                                      .normal,
+                                                          fontSize: 15.9),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: height * 0.090,
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ));
                         });
                       },
                       child: Container(
@@ -1023,21 +1257,29 @@ Widget dineOutBox(double height, double width, String img, String name,
           color: Colors.black,
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-
             fit: BoxFit.cover,
             image: AssetImage(img),
           ),
         ),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 270, top: 7),
-              child: Icon(
-                Icons.favorite_border,
-                color: Colors.white,
-                size: 27,
-              ),
-            ),
+            !ch
+                ? Padding(
+                    padding: const EdgeInsets.only(left: 270, top: 7),
+                    child: Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                      size: 27,
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(left: 270, top: 7),
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                      size: 27,
+                    ),
+                  ),
             Padding(
               padding: const EdgeInsets.only(top: 100.9),
               child: Container(
@@ -1164,7 +1406,6 @@ List dineOutHotelDetailList = [
     'rate': '4.5',
   },
   {
-
     'name': 'South Indian',
     'img': 'assets/img/hotel/h22.jpg',
     'location': 'Pravat Patiya',
@@ -1181,7 +1422,7 @@ List dineOutHotelDetailList = [
     'rate': '4.0',
   },
   {
-    'img':'assets/img/hotel/h20.jpg',
+    'img': 'assets/img/hotel/h20.jpg',
     'name': 'Buffet Delight',
     'location': '777 Sunset Blvd, Suburbia',
     'distance': '2.7km',
@@ -1212,7 +1453,6 @@ List dineOutHotelDetailList = [
     'price': '1000 for 2',
     'rate': '4.4',
   },
-
   {
     'name': 'Pizza-hut..',
     'img': 'assets/img/hotel/pizzaHut.jpg',
@@ -1325,12 +1565,10 @@ List dineOutHotelDetailList = [
     'price': '2000 for 2',
     'rate': '6.5',
   },
-
 ];
 List dineOutHotelDetailList2 = [
-
   {
-    'img':'assets/img/hotel/h14.jpg',
+    'img': 'assets/img/hotel/h14.jpg',
     'name': 'Italian',
     'location': '123 Main St, Anytown',
     'distance': '5km',
@@ -1338,7 +1576,7 @@ List dineOutHotelDetailList2 = [
     'rate': '4',
   },
   {
-    'img':'assets/img/hotel/h15.jpg',
+    'img': 'assets/img/hotel/h15.jpg',
     'name': 'Mexican',
     'location': '456 Elm St, Othertown',
     'distance': '2.7km',
@@ -1346,7 +1584,7 @@ List dineOutHotelDetailList2 = [
     'rate': '3',
   },
   {
-    'img':'assets/img/hotel/h16.jpg',
+    'img': 'assets/img/hotel/h16.jpg',
     'name': 'Japanese',
     'location': '789 Maple Ave, Cityville',
     'distance': '12km',
@@ -1354,7 +1592,7 @@ List dineOutHotelDetailList2 = [
     'rate': '4.5',
   },
   {
-    'img':'assets/img/hotel/h17.jpg',
+    'img': 'assets/img/hotel/h17.jpg',
     'name': 'American',
     'location': '101 Oak Blvd, Smalltown',
     'distance': '10km',
@@ -1540,7 +1778,7 @@ List dineOutHotelDetailList2 = [
 
 List dineOutHotelDetailList3 = [
   {
-    'img':'assets/img/hotel/h23.jpg',
+    'img': 'assets/img/hotel/h23.jpg',
     'name': 'French',
     'location': '222 Pine St, Downtown',
     'distance': '9.3km',
@@ -1556,7 +1794,7 @@ List dineOutHotelDetailList3 = [
     'rate': '6.5',
   },
   {
-    'img':'assets/img/hotel/h12.jpg',
+    'img': 'assets/img/hotel/h12.jpg',
     'name': 'Seafood',
     'location': '333 Beach Rd, Coastline',
     'distance': '4.9km',
@@ -1564,7 +1802,7 @@ List dineOutHotelDetailList3 = [
     'rate': '4.1',
   },
   {
-    'img':'assets/img/hotel/h11.jpg',
+    'img': 'assets/img/hotel/h11.jpg',
     'name': 'Vegetarian',
     'location': '444 Cedar Lane, Riverside',
     'distance': '2.7km',
@@ -1572,7 +1810,7 @@ List dineOutHotelDetailList3 = [
     'rate': '2.5',
   },
   {
-    'img':'assets/img/hotel/h10.jpg',
+    'img': 'assets/img/hotel/h10.jpg',
     'name': 'Steakhouses',
     'location': '555 Oakwood Dr, Hillside',
     'distance': '9.7km',
@@ -1580,7 +1818,7 @@ List dineOutHotelDetailList3 = [
     'rate': '6.5',
   },
   {
-    'img':'assets/img/hotel/h9.jpg',
+    'img': 'assets/img/hotel/h9.jpg',
     'name': 'Cafés',
     'location': '66 Chestnut Ave, Uptown',
     'distance': '9km',
@@ -1588,7 +1826,7 @@ List dineOutHotelDetailList3 = [
     'rate': '3.7',
   },
   {
-    'img':'assets/img/hotel/h8.jpg',
+    'img': 'assets/img/hotel/h8.jpg',
     'name': 'Buffet Delight',
     'location': '777 Sunset Blvd, Suburbia',
     'distance': '2.7km',
@@ -1873,3 +2111,4 @@ List diamondList = [
     'box': 'assets/img/diamond/7.png',
   },
 ];
+int selectedIndex = 0;
