@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DineOutScreen extends StatefulWidget {
   const DineOutScreen({super.key});
@@ -327,10 +328,9 @@ class _DineOutScreenState extends State<DineOutScreen> {
                         (index) => GestureDetector(
                           onTap: () {
                             setState(() {
-                              if (selectedIndex == index) {
-                                Navigator.of(context).pushNamed('/detail');
-                              }
+                              selectedIndex = index;
                             });
+                            Navigator.of(context).pushNamed('/offer');
                           },
                           child: dineOutBox(
                             height,
@@ -736,7 +736,8 @@ class _DineOutScreenState extends State<DineOutScreen> {
                                                                       .bold
                                                                   : FontWeight
                                                                       .normal,
-                                                          fontSize: 15.9),
+                                                          fontSize:
+                                                              height * 0.021),
                                                     ),
                                                   ],
                                                 ),
@@ -772,7 +773,8 @@ class _DineOutScreenState extends State<DineOutScreen> {
                                                                       .bold
                                                                   : FontWeight
                                                                       .normal,
-                                                          fontSize: 15.9),
+                                                          fontSize:
+                                                              height * 0.021),
                                                     ),
                                                   ],
                                                 ),
@@ -808,7 +810,8 @@ class _DineOutScreenState extends State<DineOutScreen> {
                                                                       .bold
                                                                   : FontWeight
                                                                       .normal,
-                                                          fontSize: 15.9),
+                                                          fontSize:
+                                                              height * 0.021),
                                                     ),
                                                   ],
                                                 ),
@@ -844,7 +847,8 @@ class _DineOutScreenState extends State<DineOutScreen> {
                                                                       .bold
                                                                   : FontWeight
                                                                       .normal,
-                                                          fontSize: 15.9),
+                                                          fontSize:
+                                                              height * 0.021),
                                                     ),
                                                   ],
                                                 ),
@@ -880,7 +884,8 @@ class _DineOutScreenState extends State<DineOutScreen> {
                                                                       .bold
                                                                   : FontWeight
                                                                       .normal,
-                                                          fontSize: 15.9),
+                                                          fontSize:
+                                                              height * 0.021),
                                                     ),
                                                   ],
                                                 ),
@@ -1139,39 +1144,20 @@ class _DineOutScreenState extends State<DineOutScreen> {
               children: [
                 ...List.generate(
                   dineOutHotelDetailList.length,
-                  (index) => dineOutBox(
-                    height,
-                    width,
-                    (choice == 1)
-                        ? dineOutHotelDetailList[index]['img']
-                        : (choice == 2)
-                            ? dineOutHotelDetailList2[index]['img']
-                            : dineOutHotelDetailList3[index]['img'],
-                    (choice == 1)
-                        ? dineOutHotelDetailList[index]['name']
-                        : (choice == 2)
-                            ? dineOutHotelDetailList2[index]['name']
-                            : dineOutHotelDetailList3[index]['name'],
-                    (choice == 1)
-                        ? dineOutHotelDetailList[index]['price']
-                        : (choice == 2)
-                            ? dineOutHotelDetailList2[index]['price']
-                            : dineOutHotelDetailList3[index]['price'],
-                    (choice == 1)
-                        ? dineOutHotelDetailList[index]['distance']
-                        : (choice == 2)
-                            ? dineOutHotelDetailList2[index]['distance']
-                            : dineOutHotelDetailList3[index]['distance'],
-                    (choice == 1)
-                        ? dineOutHotelDetailList[index]['location']
-                        : (choice == 2)
-                            ? dineOutHotelDetailList2[index]['location']
-                            : dineOutHotelDetailList3[index]['location'],
-                    (choice == 1)
-                        ? dineOutHotelDetailList[index]['rate']
-                        : (choice == 2)
-                            ? dineOutHotelDetailList2[index]['rate']
-                            : dineOutHotelDetailList3[index]['rate'],
+                  (index) => GestureDetector(
+                    onTap: () {
+                      // Navigator.of(context).pushNamed('/');
+                      setState(() {});
+                    },
+                    child: dineOutBox2(
+                        height,
+                        width,
+                        dineOutHotelDetailList[index]['img'],
+                        dineOutHotelDetailList[index]['name'],
+                        dineOutHotelDetailList[index]['price'],
+                        dineOutHotelDetailList[index]['distance'],
+                        dineOutHotelDetailList[index]['location'],
+                        dineOutHotelDetailList[index]['rate']),
                   ),
                 ),
               ],
@@ -1180,6 +1166,148 @@ class _DineOutScreenState extends State<DineOutScreen> {
         ),
       ),
     );
+  }
+
+  Widget dineOutBox2(height, width, String img, String name, String price,
+      String distance, String location, String rate) {
+    return Container(
+        height: height * 0.4 - 30,
+        width: width * 0.9 - 4,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(15),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(img),
+          ),
+        ),
+        child: Column(
+          children: [
+            !ch
+                ? Padding(
+                    padding: const EdgeInsets.only(left: 270, top: 7),
+                    child: Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                      size: 27,
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(left: 270, top: 7),
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                      size: 27,
+                    ),
+                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: 100.9),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                height: height * 0.1 - 26,
+                width: width * 0.9,
+                decoration: BoxDecoration(color: Colors.black12, boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26, blurRadius: 10, spreadRadius: 2)
+                ]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // SizedBox(
+                    //   width: 6,
+                    // ),
+                    Text(
+                      name,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                    // SizedBox(
+                    //   width: 146.7,
+                    // ),
+                    Text(
+                      '⭐${rate}',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              height: height * 0.117,
+              width: width * 0.9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+                color: Colors.white,
+                border: Border.all(color: Colors.black12),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        name,
+                        style: TextStyle(fontSize: 13),
+                      ),
+                      Text(
+                        price,
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        location,
+                        style: TextStyle(fontSize: 13),
+                      ),
+                      Text(
+                        distance,
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                      alignment: Alignment.center,
+                      height: height * 0.040,
+                      width: width * 0.8 + 10,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xFF1BA26E),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image.asset(
+                            'assets/img/discount.png',
+                            height: 15,
+                          ),
+                          Text(
+                            'Flat 20% off on pre-booking',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Text(
+                            '+2 more',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      )),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 
   Container buildContainer(BuildContext context, String img2) {
@@ -1245,7 +1373,150 @@ Widget box2(
     ),
   );
 }
-
+Widget dineOutBox2(double height, double width, String img, String name,
+    String price, String distance, String location, String rate) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+        height: height * 0.4 - 30,
+        width: width * 0.9 - 4,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(15),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(img),
+          ),
+        ),
+        child: Column(
+          children: [
+            !ch
+                ? Padding(
+              padding: const EdgeInsets.only(left: 270, top: 7),
+              child: Icon(
+                Icons.favorite_border,
+                color: Colors.white,
+                size: 27,
+              ),
+            )
+                : Padding(
+              padding: const EdgeInsets.only(left: 270, top: 7),
+              child: Icon(
+                Icons.favorite,
+                color: Colors.white,
+                size: 27,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 100.9),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                height: height * 0.1 - 26,
+                width: width * 0.9,
+                decoration: BoxDecoration(color: Colors.black12, boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26, blurRadius: 10, spreadRadius: 2)
+                ]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // SizedBox(
+                    //   width: 6,
+                    // ),
+                    Text(
+                      name,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                    // SizedBox(
+                    //   width: 146.7,
+                    // ),
+                    Text(
+                      '⭐${rate}',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              height: height * 0.117,
+              width: width * 0.9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+                color: Colors.white,
+                border: Border.all(color: Colors.black12),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        name,
+                        style: TextStyle(fontSize: 13),
+                      ),
+                      Text(
+                        price,
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        location,
+                        style: TextStyle(fontSize: 13),
+                      ),
+                      Text(
+                        distance,
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                      alignment: Alignment.center,
+                      height: height * 0.040,
+                      width: width * 0.8 + 10,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xFF1BA26E),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image.asset(
+                            'assets/img/discount.png',
+                            height: 15,
+                          ),
+                          Text(
+                            'Flat 20% off on pre-booking',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Text(
+                            '+2 more',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      )),
+                ],
+              ),
+            ),
+          ],
+        )),
+  );
+}
 Widget dineOutBox(double height, double width, String img, String name,
     String price, String distance, String location, String rate) {
   return Padding(
@@ -1286,15 +1557,10 @@ Widget dineOutBox(double height, double width, String img, String name,
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 height: height * 0.1 - 26,
                 width: width * 0.9,
-                decoration: BoxDecoration(
-                    color: Colors.black12,
-                    // borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 10,
-                          spreadRadius: 2)
-                    ]),
+                decoration: BoxDecoration(color: Colors.black12, boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26, blurRadius: 10, spreadRadius: 2)
+                ]),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

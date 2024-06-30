@@ -40,6 +40,8 @@ dependencies:
   dropdown_button2: ^2.3.9
   animated_text_kit: ^4.2.2
   smooth_page_indicator: ^1.1.0
+  marquee: ^2.2.3
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -174,6 +176,8 @@ flutter:
     - assets/img/pizza/pizza4.jpg
     - assets/img/pizza/pizza5.jpeg
     - assets/img/pizza/pizza6.jpeg
+
+    - assets/img/j2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
